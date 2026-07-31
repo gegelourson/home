@@ -8,6 +8,7 @@
 </head>
 <body>
     <video
+        id="bg-video"
         class="background-video"
         autoplay
         muted
@@ -18,3 +19,18 @@
     </video>
 </body>
 </html>
+
+<script>
+const video = document.getElementById('bg-video');
+
+// Activate sound on user click
+document.addEventListener('click', async () => {
+    video.muted = false;
+    try {
+        console.log('Attempting to play video with sound...');
+        await video.play();
+    } catch (err) {
+        console.error(err);
+    }
+}, { once: true });
+</script>
